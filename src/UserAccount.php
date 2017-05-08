@@ -13,6 +13,10 @@ class UserAccount
     private $currencyName;
     /** @var bool */
     private $isDefaultWallet;
+    /** @var string */
+    private $bank_name;
+    /** @var string */
+    private $currency_name;
 
     /**
      * @param int $id
@@ -21,13 +25,15 @@ class UserAccount
      * @param string $currencyName
      * @param bool $isDefaultWallet
      */
-    public function __construct($id, $displayName, $currencyBalance, $currencyName, $isDefaultWallet)
+    public function __construct($id, $displayName, $currencyBalance, $currencyName, $isDefaultWallet, $bank_name, $currency_name )
     {
         $this->id = $id;
         $this->displayName = $displayName;
         $this->currencyBalance = $currencyBalance;
         $this->currencyName = $currencyName;
         $this->isDefaultWallet = $isDefaultWallet;
+        $this->bank_name = $bank_name;
+        $this->currency_name = $currency_name;
     }
 
     /**

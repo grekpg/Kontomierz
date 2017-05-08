@@ -48,7 +48,9 @@ class KontomierzClient
                 $row['user_account']['display_name'],
                 $row['user_account']['currency_balance'],
                 $row['user_account']['currency_name'],
-                1 == $row['user_account']['is_default_wallet']
+                1 == $row['user_account']['is_default_wallet'],
+                $row['user_account']['bank_name'],
+                $row['user_account']['currency_name']
             );
         }
 
