@@ -1,5 +1,5 @@
 {
-    "name": "woojos/kontomierz",
+    "name": "grekpg/kontomierz",
     "description": "API kontomierz",
     "type": "library",
     "license": "MIT",
@@ -18,13 +18,13 @@
 
     "autoload": {
         "psr-4": {
-            "woojos\\kontomierz\\": "src/"
+            "grekpg\\kontomierz\\": "src/"
         }
     },
 
     "autoload-dev": {
         "psr-4": {
-            "woojos\\kontomierz\\Tests\\": "tests/"
+            "grekpg\\kontomierz\\Tests\\": "tests/"
         }
     }
 }
