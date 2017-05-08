@@ -18,13 +18,13 @@
 
     "autoload": {
         "psr-4": {
-            "grekpg\\kontomierz\\": "src/"
+            "woojos\\kontomierz\\": "src/"
         }
     },
 
     "autoload-dev": {
         "psr-4": {
-            "grekpg\\kontomierz\\Tests\\": "tests/"
+            "woojos\\kontomierz\\Tests\\": "tests/"
         }
     }
 }
