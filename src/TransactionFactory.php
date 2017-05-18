@@ -17,11 +17,14 @@ class TransactionFactory
             $transaction['id'],
             $transaction['user_account_id'],
             $transaction['category_id'],
+            $transaction['category_name'],
             $transaction['currency_amount'],
             $transaction['currency_name'],
             \DateTime::createFromFormat('Y-m-d', $transaction['transaction_on']),
-            $transaction['description'],
-            $transaction['tag_string']
+            $transaction['title'],
+            $transaction['tag_string'],
+            isset($transaction['plain_party_iban']) ? $transaction['plain_party_iban']:null,
+            $transaction['description']
         );
     }
 

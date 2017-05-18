@@ -27,6 +27,9 @@ class Transaction
     private $name;
     /** @var string */
     private $tagString;
+    private $contractor;
+    private $iban;
+    private $categoryName;
 
     /**
      * @param int $id
@@ -38,16 +41,28 @@ class Transaction
      * @param string $name
      * @param string $tagString
      */
-    public function __construct($id, $userAccountId, $categoryId, $currencyAmount, $currencyName, \DateTimeInterface $transactionOn, $name, $tagString = '')
+    public function __construct($id, $userAccountId, $categoryId, $categoryName, $currencyAmount, $currencyName, \DateTimeInterface $transactionOn, $name, $tagString = '',$iban, $contractor)
     {
         $this->id = $id;
         $this->userAccountId = $userAccountId;
         $this->categoryId = $categoryId;
+        $this->categoryName = $categoryName;
         $this->currencyAmount = $currencyAmount;
         $this->currencyName = $currencyName;
         $this->transactionOn = $transactionOn;
         $this->name = $name;
         $this->tagString = $tagString;
+        $this->iban = $iban;
+        $this->contractor = $contractor;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getIban()
+    {
+        return $this->iban;
     }
 
     /**
@@ -112,6 +127,30 @@ class Transaction
     public function getTagString()
     {
         return $this->tagString;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategoryName()
+    {
+        return $this->categoryName;
+    }
+
+    /**
+     * @param mixed $categoryName
+     */
+    public function setCategoryName($categoryName)
+    {
+        $this->categoryName = $categoryName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getContractor()
+    {
+        return $this->contractor;
     }
 
 }

@@ -50,7 +50,8 @@ class KontomierzClient
                 $row['user_account']['currency_name'],
                 1 == $row['user_account']['is_default_wallet'],
                 $row['user_account']['bank_name'],
-                $row['user_account']['currency_name']
+                $row['user_account']['currency_name'],
+                $row['user_account']['iban']
             );
         }
 
@@ -181,9 +182,21 @@ class KontomierzClient
             $url = self::URL . 'money_transactions.' . self::FORMAT . '?api_key=' . $this->apiKey . '&' . $query->buildQuery();
             $response = $this->httpClient->get($url);
             $responseInArray = json_decode($response->getBody()->getContents(), true);
+
             $collection = [];
             foreach ($responseInArray as $transaction) {
+
                 $collection[] = TransactionFactory::createFromJSONResponse($transaction['money_transaction']);
+//                pa([
+//                    $collection,
+//                    $transaction['money_transaction']
+//                ]);
+//                if($transaction['money_transaction']['id']==125344081)
+//                pa([
+//                    $responseInArray,
+//                    $collection,
+//                    $transaction['money_transaction']
+//                ]);
             }
             return $collection;
         } catch (ClientException $e) {
