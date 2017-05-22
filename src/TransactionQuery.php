@@ -27,7 +27,10 @@ class TransactionQuery
     private $categoryGroupId;
     /** @var int */
     private $categoryId;
-
+    /** @var bool */
+    private $import_hidden=false;
+    /** @var bool */
+    private $import_interest=false;
 
     /**
      * @return string
@@ -72,7 +75,45 @@ class TransactionQuery
             $query['category_id'] = $this->categoryId;
         }
 
+        if($this->isImportHidden())
+            $query['show_hidden_transactions'] = 'true';
+
+        if($this->isImportInterest())
+            $query['show_interest_income_transactions'] = 'true';
+
         return http_build_query($query);
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isImportHidden()
+    {
+        return $this->import_hidden;
+    }
+
+    /**
+     * @param boolean $import_hidden
+     */
+    public function setImportHidden($import_hidden)
+    {
+        $this->import_hidden = $import_hidden;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isImportInterest()
+    {
+        return $this->import_interest;
+    }
+
+    /**
+     * @param boolean $import_interest
+     */
+    public function setImportInterest($import_interest)
+    {
+        $this->import_interest = $import_interest;
     }
 
     /**
