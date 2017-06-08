@@ -174,15 +174,18 @@ class KontomierzClient
 
     /**
      * @param TransactionQuery $query
+     * @return array
      * @throws KontomierzClientException
      */
     public function getTransactionList(TransactionQuery $query)
     {
         try {
             $url = self::URL . 'money_transactions.' . self::FORMAT . '?api_key=' . $this->apiKey . '&' . $query->buildQuery();
+
             $response = $this->httpClient->get($url);
             $responseInArray = json_decode($response->getBody()->getContents(), true);
 
+            //pa($responseInArray,$url);
             $collection = [];
             foreach ($responseInArray as $transaction) {
 

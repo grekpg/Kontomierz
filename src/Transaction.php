@@ -106,7 +106,7 @@ class Transaction
     }
 
     /**
-     * @return \DateTimeInterface
+     * @return \DateTime
      */
     public function getTransactionOn()
     {
