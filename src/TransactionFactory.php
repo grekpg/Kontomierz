@@ -24,7 +24,8 @@ class TransactionFactory
             $transaction['title'],
             $transaction['tag_string'],
             isset($transaction['plain_party_iban']) ? $transaction['plain_party_iban']:null,
-            $transaction['description']
+            $transaction['description'],
+            $transaction['kind']
         );
     }
 

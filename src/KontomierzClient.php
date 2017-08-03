@@ -23,6 +23,7 @@ class KontomierzClient
     /** @var Client */
     private $httpClient;
 
+
     /**
      * @param Client $httpClient
      * @param string $apiKey

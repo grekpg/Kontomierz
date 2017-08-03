@@ -11,6 +11,8 @@ class Transaction
     const DIRECTION_DEPOSIT = 'deposit';
     const DIRECTION_ALL = 'all';
 
+
+
     /** @var int */
     private $id;
     /** @var int */
@@ -30,6 +32,8 @@ class Transaction
     private $contractor;
     private $iban;
     private $categoryName;
+    /** @var string */
+    private $kind;
 
     /**
      * @param int $id
@@ -41,7 +45,7 @@ class Transaction
      * @param string $name
      * @param string $tagString
      */
-    public function __construct($id, $userAccountId, $categoryId, $categoryName, $currencyAmount, $currencyName, \DateTimeInterface $transactionOn, $name, $tagString = '',$iban, $contractor)
+    public function __construct($id, $userAccountId, $categoryId, $categoryName, $currencyAmount, $currencyName, \DateTimeInterface $transactionOn, $name, $tagString = '',$iban, $contractor,$kind)
     {
         $this->id = $id;
         $this->userAccountId = $userAccountId;
@@ -54,6 +58,7 @@ class Transaction
         $this->tagString = $tagString;
         $this->iban = $iban;
         $this->contractor = $contractor;
+        $this->kind = $kind;
     }
 
 
@@ -151,6 +156,22 @@ class Transaction
     public function getContractor()
     {
         return $this->contractor;
+    }
+
+    /**
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+
+    /**
+     * @param string $kind
+     */
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
     }
 
 }
